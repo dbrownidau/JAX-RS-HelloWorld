@@ -12,7 +12,7 @@ import org.eclipse.jetty.servlet.ServletHolder;
 
 import com.sun.jersey.spi.container.servlet.ServletContainer;
 
-import au.id.dbrown.example.helloworld.servlets.hacktheplanet.HackThePlanetApp;
+import au.id.dbrown.example.helloworld.servlets.hellojson.HelloJsonApp;
 import au.id.dbrown.example.helloworld.servlets.helloworld.JaxRsApp;
 
 /**
@@ -30,11 +30,11 @@ public class Application {
 		ServletHolder helloWorldServlet = new ServletHolder(new ServletContainer(new JaxRsApp()));
 		// The Jetty ServletHolder contains a Jersey ServletContainer
 		// the Jersey ServletContainer contains a JAX-RS Application.
-		ServletHolder hackThePlanetServlet = new ServletHolder(new ServletContainer(new HackThePlanetApp()));
+		ServletHolder helloJsonServlet = new ServletHolder(new ServletContainer(new HelloJsonApp()));
 
 		// Required symbol '*' grants scope to servlet application.
 		handler.addServlet(helloWorldServlet, "/app1/*");
-		handler.addServlet(hackThePlanetServlet, "/app2/*");
+		handler.addServlet(helloJsonServlet, "/app2/*");
 
 		server.setHandler(handler);
 

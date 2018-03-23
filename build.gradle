@@ -12,6 +12,12 @@ plugins {
 }
 
 dependencies {
+    // https://mvnrepository.com/artifact/com.fasterxml.jackson.jaxrs/jackson-jaxrs-json-provider
+	compile group: 'com.fasterxml.jackson.jaxrs', name: 'jackson-jaxrs-json-provider', version: '2.9.4'
+
+    // https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-annotations
+    compile group: 'com.fasterxml.jackson.core', name: 'jackson-annotations', version: '2.9.4'
+
 	// https://mvnrepository.com/artifact/com.sun.jersey/jersey-servlet
 	compile group: 'com.sun.jersey', name: 'jersey-servlet', version: '1.19.4'
 
