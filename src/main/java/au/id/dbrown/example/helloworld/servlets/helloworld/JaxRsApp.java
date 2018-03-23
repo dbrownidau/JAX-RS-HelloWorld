@@ -1,32 +1,22 @@
 package au.id.dbrown.example.helloworld.servlets.helloworld;
 
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.Set;
-
 import javax.ws.rs.ApplicationPath;
-import javax.ws.rs.core.Application;
+
+import org.glassfish.jersey.server.ResourceConfig;
 
 /**
  * @author Damion Brown (dbrown) <the@dbrown.id.au>
  * 
  *         Borrows heavily from
- *         https://github.com/jersey/jersey/blob/master/examples/helloworld-pure-jax-rs/src/main/java/org/glassfish/jersey/examples/helloworld/jaxrs/JaxRsApplication.java
+ *         https://github.com/nobuoka/jax-rs-jersey-application-sample/blob/master/src/main/java/info/vividcode/web/app/jerseysample/MyApplication.java
  *
  */
 @ApplicationPath("/")
-public class JaxRsApp extends Application {
-	private final Set<Class<?>> classes;
+public class JaxRsApp extends ResourceConfig {
 
 	public JaxRsApp() {
-		HashSet<Class<?>> c = new HashSet<Class<?>>();
-		c.add(HelloWorld.class);
-		classes = Collections.unmodifiableSet(c);
-	}
-
-	@Override
-	public Set<Class<?>> getClasses() {
-		return classes;
+		System.out.println("HelloJsonApp Contruct");
+		packages(this.getClass().getPackage().getName());
 	}
 
 }

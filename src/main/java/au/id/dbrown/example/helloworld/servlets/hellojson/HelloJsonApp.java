@@ -1,42 +1,29 @@
 package au.id.dbrown.example.helloworld.servlets.hellojson;
 
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.Set;
-
 import javax.ws.rs.ApplicationPath;
-import javax.ws.rs.core.Application;
 
-import com.fasterxml.jackson.jaxrs.json.JacksonJsonProvider;
+import org.glassfish.jersey.server.ResourceConfig;
 
 /**
  * @author Damion Brown (dbrown) <the@dbrown.id.au>
  * 
  *         Borrows heavily from
- *         https://github.com/jersey/jersey/blob/master/examples/helloworld-pure-jax-rs/src/main/java/org/glassfish/jersey/examples/helloworld/jaxrs/JaxRsApplication.java
+ *         https://github.com/nobuoka/jax-rs-jersey-application-sample/blob/master/src/main/java/info/vividcode/web/app/jerseysample/MyApplication.java
  *
  */
 @ApplicationPath("/")
-public class HelloJsonApp extends Application {
-	private final Set<Class<?>> classes;
+public class HelloJsonApp extends ResourceConfig {
 
 	public HelloJsonApp() {
 		System.out.println("HelloJsonApp Contruct");
-		HashSet<Class<?>> c = new HashSet<Class<?>>();
-		c.add(HelloJson.class);
+		packages(this.getClass().getPackage().getName());
 		/*
 		 * com.fasterxml.jackson.jaxrs.json.JacksonJsonProvider
 		 * 
 		 * Binder for JSON<->POJO, this providers readers and writers for
 		 * MediaType.APPLICATION_JSON
 		 */
-		c.add(JacksonJsonProvider.class);
-		classes = Collections.unmodifiableSet(c);
-	}
-
-	@Override
-	public Set<Class<?>> getClasses() {
-		return classes;
+		packages("com.fasterxml.jackson.jaxrs.json");
 	}
 
 }

@@ -9,8 +9,7 @@ import javax.ws.rs.core.UriBuilder;
 import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.servlet.ServletContextHandler;
 import org.eclipse.jetty.servlet.ServletHolder;
-
-import com.sun.jersey.spi.container.servlet.ServletContainer;
+import org.glassfish.jersey.servlet.ServletContainer;
 
 import au.id.dbrown.example.helloworld.servlets.hellojson.HelloJsonApp;
 import au.id.dbrown.example.helloworld.servlets.helloworld.JaxRsApp;
